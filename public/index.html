@@ -18,7 +18,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>./Hello-my-Friend</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+        crossorigin=""></script>
     <style>
+        #mapid {
+            height: 100%;
+        }
+
         a:link,
         a:visited {
             background-color: lightsalmon;
@@ -38,8 +46,8 @@
         .container {
             display: grid;
             width: 100%;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 50px 100px 100px 100px 30px;
+            grid-template-columns: 0.5fr 1fr 1fr 1fr;
+            grid-template-rows: 50px 100px 300px 100px 50px;
             grid-gap: 4px;
         }
 
@@ -86,12 +94,58 @@
             <a href="project1/add2numbers.html" target="_blank">Jumlah 2 Angka</a>
         </div>
         <div class="konten">
-            <a href="#" target="_blank">Lokasi Mapbox</a>
+            <!-- <a href="#" target="_blank">Lokasi Mapbox</a> -->
+            <div id="mapid">
+
+            </div>
         </div>
         <div class="konten">Konten 3</div>
         <div class="footer">Okta Arif Cahyawan</div>
     </div>
 
 </body>
+<script>
+    var mymap = L.map('mapid').setView([-6.980863, 110.409352], 15);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Lokasi Istimewa dengan Mapbox | Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>,Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1Ijoib2t1dGFzYW4iLCJhIjoiY2ptYzY0MDh5MmluOTNxcG9heHBhbmp1cSJ9.n48nzeQ_N6u9-YSazkBPsQ'
+    }).addTo(mymap);
+
+    var marker = L.marker([-6.980863, 110.409352]).addTo(mymap);
+    var circle = L.circle([-6.980863, 110.409352], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 100
+    }).addTo(mymap);
+
+    // var polygon = L.polygon([
+    //     [51.509, -0.08],
+    //     [51.503, -0.06],
+    //     [51.51, -0.047]
+    // ]).addTo(mymap);
+    marker.bindPopup("<b>Lokasi UDINUS</b>").openPopup();
+    circle.bindPopup("Ini sebuah Lingkaran.");
+    polygon.bindPopup("Ini sebuah polygon.");
+
+
+    // var popup = L.popup()
+    //     .setLatLng([-6.980863, 110.409352])
+    //     .setContent("Lokasi UDINUS")
+    //     .openOn(mymap);
+    var popup = L.popup();
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Lokasi yang dipilih: " + e.latlng.toString())
+            .openOn(mymap);
+    }
+    mymap.on('click', onMapClick);
+
+
+</script>
 
 </html>
