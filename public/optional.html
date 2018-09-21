@@ -9,7 +9,7 @@
     <style>
         .container {
             display: grid;
-            grid-template-columns: 100px 100px 50px;
+            grid-template-columns: 100px 100px 100px;
             grid-template-rows: 100px 100px 100px;
         }
 
@@ -20,14 +20,19 @@
 
         .dua {
             background: lightyellow;
+
         }
 
         .tiga {
             background: lightblue;
+            grid-row-start: 2;
+            grid-row-end: 5;
         }
 
         .empat {
             background: plum;
+            grid-column: 2/4; 
+            
         }
 
         .lima {
@@ -41,13 +46,16 @@
 </head>
 
 <body>
-    <div class="satu">1</div>
-    <div class="dua">2</div>
-    <div class="tiga">3</div>
-    <div class="empat">4</div>
-    <div class="lima">5</div>
-    <div class="enam">6</div>
-
+    <div class="container">
+            <div class="satu">1</div>
+            <div class="dua">2</div>
+            <div class="tiga">3</div>
+            <div class="empat">4</div>
+            <div class="lima">5</div>
+            <div class="enam">6</div>
+        
+    </div>
+    
 </body>
 
 </html>
