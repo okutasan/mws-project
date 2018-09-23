@@ -1,0 +1,40 @@
+.biru { background-color: blue;}
+.biru_laut { background-color: lightblue;}
+.hijau { background-color: green;}
+.merah { background-color: red;}
+.orange { background-color:  orange;}
+.box {
+  min-height: 100px;
+  width:100%;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (min-width:800px) {
+  .container {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+@media screen and (min-width:400px) {
+    .biru_laut {
+        width: 50%;
+    }
+    .biru {
+        width: 50%;
+    }
+  }
+
+  @media screen and (min-width:600px) {
+    .hijau {
+        width: 33.333%;
+    }
+    .merah{
+        width: 33.333%;
+    }
+    .orange {
+        width: 33.333%;
+    }
+  }
