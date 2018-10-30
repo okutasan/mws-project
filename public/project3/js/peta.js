@@ -47,23 +47,18 @@ rev.appendChild(par);
 //         "lokasi": [-6.222043, 106.791070], "sponsor": "Rupa-rupa Seafood!!", "gambar":"images/seafood.jpg","review": r4}
 // ];
 
-const URL = "data/peta.json";
-
-fetch(URL)
-    .then(response => {
-        if (response.status !== 200) {
-            console.log(`Ada masalah. Status code: ${response.status}`);
-
-            throw response.statusText;
-        }
-        return response.json();
-    })
-    .then(response => {
-        //let places = response.places ;
-        localStorage.setItem('places', JSON.stringify(response.places));
-
-    })
-    .catch(err => console.log(err));
+(async function () {
+    const URL = "data/peta.json";
+    try {
+        let resp = await (fetch(URL));
+        let resp2 = await resp.json();
+        localStorage.setItem('places',
+            JSON.stringify(resp2.places));//
+    }
+    catch (err) {
+        console.log(err);
+    }
+})(); // <--- IIFE
 
 let places = JSON.parse(localStorage.getItem('places'));
 
