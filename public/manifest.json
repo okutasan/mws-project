@@ -1,0 +1,17 @@
+{
+    "name": "Okta Progessive Web App",
+    "short_name": "Okta Web Apps",
+    "theme_color": "#ffffff",
+    "background_color": "#85a0ec",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "index.html?hs=true",
+    "icons": [
+      {
+        "src": "images/g4.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "splash_pages": null
+  }
