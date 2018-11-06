@@ -90,20 +90,29 @@
 
         <div class="konten">
             
-            <a href="project1/add2numbers.html" target="_blank">Jumlah 2 Angka</a>
+            <a href="project1/add2numbers.html" >Jumlah 2 Angka</a>
         </div>
         <div class="konten">
-            <a href="project2/index.html" target="_blank">Halaman Istimewa Mapbox</a>
+            <a href="project2/index.html" >Halaman Istimewa Mapbox</a>
             <div id="mapid">
 
             </div>
         </div>
         <div class="konten">
-                <a href="project3" target="_blank">Konten 3 Fetch JSON</a>
+                <a href="project3/index.html" >Konten 3 Fetch JSON</a>
             </div>
         </div>
         <div class="footer">Okta Arif Cahyawan</div>
     </div>
 
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('serviceworker.js').then(function(registration) {
+          console.log('Service worker registered successfully', registration);
+        }).catch(function(err) {
+          console.log('Service worker registration failed: ', err);
+        });
+      };
+  </script>
 </html>
